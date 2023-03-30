@@ -1,4 +1,4 @@
 export interface Cart {
-    products:[{product:string,nbr:number}]
-    buyer:string
+  products: [{ product: string; nbr: number }];
+  buyer: string;
 }

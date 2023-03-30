@@ -1,11 +1,18 @@
-import { Controller, Get, Post, Body, Patch, Param, Delete } from '@nestjs/common';
+import {
+  Controller,
+  Get,
+  Post,
+  Body,
+  Patch,
+  Param,
+  Delete,
+} from '@nestjs/common';
 import { AuthService } from './auth.service';
 import { CreateAuthDto } from './dto/create-auth.dto';
 
 @Controller('auth')
 export class AuthController {
-
-  constructor(private readonly authService: AuthService) { }
+  constructor(private readonly authService: AuthService) {}
 
   @Post('buyer/signin')
   BuyerSignin(@Body() createAuthDto: CreateAuthDto) {
@@ -26,5 +33,4 @@ export class AuthController {
   AdminSignup(@Body() createAuthDto: CreateAuthDto) {
     return this.authService.AdminSignup(createAuthDto);
   }
-
 }

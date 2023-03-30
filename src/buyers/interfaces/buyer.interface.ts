@@ -1,5 +1,5 @@
 export interface Buyer {
-    name: string ,
-    age: number,
-    password: string
+  name: string;
+  age: number;
+  password: string;
 }

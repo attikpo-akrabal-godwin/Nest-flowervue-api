@@ -5,8 +5,10 @@ import { MongooseModule } from '@nestjs/mongoose';
 import { AdminSchema } from './admin.schema';
 
 @Module({
-  imports:[MongooseModule.forFeature([{name:'admin',schema:AdminSchema}])],
+  imports: [
+    MongooseModule.forFeature([{ name: 'admin', schema: AdminSchema }]),
+  ],
   controllers: [AdminController],
-  providers: [AdminService]
+  providers: [AdminService],
 })
 export class AdminModule {}

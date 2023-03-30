@@ -7,34 +7,35 @@ import { Cart } from './interfaces/cart.interface';
 
 @Injectable()
 export class CartService {
-
-  constructor(@InjectModel('cart') private readonly cartModel : Model<Cart>){}
+  constructor(@InjectModel('cart') private readonly cartModel: Model<Cart>) {}
 
   create(createCartDto: CreateCartDto) {
-    let newCart = this.cartModel.create(createCartDto)
+    let newCart = this.cartModel.create(createCartDto);
     return newCart;
   }
 
   findAll() {
-    let cartsFound = this.cartModel.find()
-    return cartsFound
+    let cartsFound = this.cartModel.find();
+    return cartsFound;
   }
 
   findOne(id: string) {
-    let cartFound = this.cartModel.findOne({_id:id})
-    return cartFound ;
+    let cartFound = this.cartModel.findOne({ _id: id });
+    return cartFound;
   }
 
   update(id: string, updateCartDto: UpdateCartDto) {
-    let newwCart = this.cartModel.findByIdAndUpdate(id,updateCartDto,{returnDocument:'after'})
-    return newwCart ;
+    let newwCart = this.cartModel.findByIdAndUpdate(id, updateCartDto, {
+      returnDocument: 'after',
+    });
+    return newwCart;
   }
 
   async remove(id: string) {
-    let deleteCart =  await this.cartModel.findByIdAndRemove(id)
+    let deleteCart = await this.cartModel.findByIdAndRemove(id);
     return {
-      message:'pagnier supprimer ',
-      deleteCart
-    }
+      message: 'pagnier supprimer ',
+      deleteCart,
+    };
   }
 }

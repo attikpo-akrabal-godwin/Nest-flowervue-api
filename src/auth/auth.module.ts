@@ -6,8 +6,13 @@ import { BuyerSchema } from 'src/buyers/buyers.schema';
 import { AdminSchema } from 'src/admin/admin.schema';
 
 @Module({
-  imports:[MongooseModule.forFeature([{name:'buyer',schema:BuyerSchema},{name:'admin',schema:AdminSchema}])],
+  imports: [
+    MongooseModule.forFeature([
+      { name: 'buyer', schema: BuyerSchema },
+      { name: 'admin', schema: AdminSchema },
+    ]),
+  ],
   controllers: [AuthController],
-  providers: [AuthService]
+  providers: [AuthService],
 })
 export class AuthModule {}

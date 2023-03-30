@@ -1,4 +1,4 @@
 export class CreateCartDto {
-    products:[{product:string,nbr:number}]
-    buyer:string
+  products: [{ product: string; nbr: number }];
+  buyer: string;
 }

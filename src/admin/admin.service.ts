@@ -7,11 +7,11 @@ import { Admin } from './interfaces/admin.interface';
 
 @Injectable()
 export class AdminService {
-  constructor(@InjectModel('admin') private readonly adminModel: Model<Admin>){}
+  constructor(
+    @InjectModel('admin') private readonly adminModel: Model<Admin>,
+  ) {}
 
   create(createAdminDto: CreateAdminDto) {
     return 'This action adds a new admin';
   }
-
-  
 }

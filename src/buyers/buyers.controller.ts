@@ -5,12 +5,10 @@ import { Buyer } from './interfaces/buyer.interface';
 
 @Controller('buyers')
 export class BuyersController {
-    constructor(private readonly buyerService: BuyersService){}
+  constructor(private readonly buyerService: BuyersService) {}
 
-    @Get()
-    me(@Body() createBuyerDto:CreateBuyerDto) {
-
-        return this.buyerService.me(createBuyerDto)  
-        
-    }
+  @Get()
+  me(@Body() createBuyerDto: CreateBuyerDto) {
+    return this.buyerService.me(createBuyerDto);
+  }
 }
