@@ -1,14 +1,18 @@
-import { Body, Controller, Get } from '@nestjs/common';
+import { Body, Controller, Get, Request, UseGuards } from '@nestjs/common';
 import { BuyersService } from './buyers.service';
 import { CreateBuyerDto } from './dto/create-buyer.dto';
 import { Buyer } from './interfaces/buyer.interface';
+import {AuthGuard}  from '@nestjs/passport'
 
-@Controller('buyers')
+
+@Controller('buyer')
 export class BuyersController {
   constructor(private readonly buyerService: BuyersService) {}
-
-  @Get()
-  me(@Body() createBuyerDto: CreateBuyerDto) {
+  
+  @UseGuards(AuthGuard('jwtBuyer')) 
+  @Get('me')
+  me(@Body() createBuyerDto: CreateBuyerDto,@Request() req) {
+    
     return this.buyerService.me(createBuyerDto);
   }
 }
